@@ -1,3 +1,18 @@
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+// GET /users/:userID
+app.get('/users/:userId', (req, res) => {
+  const userID = req.params.userId;
+  res.status(200).send(`User details for userID: ${userID}`)
+})
+
+const port = 5000;
+app.listen(port, () => console.log('Server is listening on port', port));
+
+
 // HTTP Server - Import and initialize server
 // const http = require('http');
 // const server = http.createServer((req, res) => {
